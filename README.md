@@ -52,7 +52,7 @@ A modern AI-powered Search Engine project with an advanced Admin Dashboard, Mach
 
 ## Admin Dashboard
 
-<img width="100%" alt="Admin Dashboard" src="admin dashboard.png?text=Admin+Dashboard">
+<img width="100%" alt="Admin Dashboard" src="admin.png?text=Admin+Dashboard">
 
 ---
 
