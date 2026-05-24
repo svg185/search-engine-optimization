@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Search Engine</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="smart-page dark">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="SmartSearch home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <strong>SmartSearch</strong>
+      </a>
+      <nav class="search-tabs" aria-label="Top navigation">
+        <a class="active" href="#webResults">Web</a>
+        <a href="#resourcesGrid">Images</a>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener">Videos</a>
+        <a href="https://news.google.com" target="_blank" rel="noopener">News</a>
+        <a href="https://books.google.com" target="_blank" rel="noopener">Books</a>
+        <a href="https://maps.google.com" target="_blank" rel="noopener">Maps</a>
+        <a href="#chatWindow">More</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-button" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">☼</button>
+        <span class="app-grid" aria-hidden="true">⠿</span>
+        <a class="signin-button" href="admin.html">Sign In</a>
+      </div>
+    </header>
+
+    <main class="google-shell">
+      <section class="search-home" aria-label="Question search">
+        <h1 class="logo">Explore the Web</h1>
+        <p class="hero-subtitle">Search smarter, find better.</p>
+
+        <form id="chatForm" class="google-search">
+          <label class="sr-only" for="questionInput">Search online</label>
+          <span class="search-symbol" aria-hidden="true">⌕</span>
+          <textarea
+            id="questionInput"
+            rows="1"
+            placeholder="Search anything..."
+          ></textarea>
+          <button class="mic-button" type="button" aria-label="Voice search style button" title="Voice style">♬</button>
+          <button class="lens-button" type="button" aria-label="Lens style button" title="Lens style">◉</button>
+          <button class="submit-button" type="submit">Search</button>
+        </form>
+
+        <div class="quick-actions">
+          <button type="submit" form="chatForm">↗ Trending</button>
+          <button type="button">▱ Technology</button>
+          <button type="button">⚗ Science</button>
+          <button type="button">$ Finance</button>
+          <button type="button">♡ Health</button>
+          <button type="button" id="luckyButton">I'm Feeling Lucky</button>
+        </div>
+
+        <div class="mode-strip" id="modeFilters" aria-label="Answer mode filters"></div>
+
+        <section class="suggestion-panel" aria-label="Suggestions and recent searches">
+          <div class="trending-block">
+            <div class="section-title">
+              <h2>↗ Trending Searches</h2>
+              <a href="#webResults">View all</a>
+            </div>
+            <div id="promptSuggestions" class="suggestion-list"></div>
+          </div>
+          <div class="recent-block">
+            <h2>Recent Searches</h2>
+            <div id="recentQuestions" class="recent-list">
+              <span class="muted">No searches yet</span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="web-results-section" aria-label="Online search results">
+        <div class="results-bar">
+          <div>
+            <strong id="webResultHeading">Search results</strong>
+            <span id="webResultMeta" class="muted">Type a query to see online platform links</span>
+          </div>
+          <a id="openGoogleLink" class="open-web-link" href="https://www.google.com" target="_blank" rel="noopener">Open Google</a>
+        </div>
+        <section id="webResults" class="web-results" aria-live="polite"></section>
+      </section>
+
+      <section class="answer-section" aria-label="Chat answer">
+        <div class="answer-heading">
+          <div>
+            <strong>Answer</strong>
+            <span id="activeQuestion" class="muted">Search to get a short project answer</span>
+          </div>
+        </div>
+        <div id="chatWindow" class="chat-window" aria-live="polite"></div>
+      </section>
+
+      <section class="resources-section" aria-label="Related results">
+        <div class="answer-heading">
+          <div>
+            <strong id="resourceCount">Related sources</strong>
+            <span class="muted">Matching topics from the built-in knowledge base</span>
+          </div>
+        </div>
+        <section id="resourcesGrid" class="resources-grid" aria-live="polite"></section>
+      </section>
+    </main>
+
+    <footer class="smart-footer">
+      <span>© 2024 SmartSearch. All rights reserved.</span>
+      <nav aria-label="Footer navigation">
+        <a href="#webResults">About</a>
+        <a href="#chatWindow">Privacy</a>
+        <a href="#resourcesGrid">Terms</a>
+        <a href="admin.html">Contact</a>
+        <a href="admin.html">Help</a>
+      </nav>
+      <span>◎ English</span>
+    </footer>
+
+    <template id="messageTemplate">
+      <article class="message">
+        <div class="avatar"></div>
+        <div class="message-body">
+          <span class="message-name"></span>
+          <div class="message-text"></div>
+        </div>
+      </article>
+    </template>
+
+    <template id="resourceTemplate">
+      <article class="resource-card">
+        <img class="resource-image" alt="" loading="lazy" />
+        <div class="resource-topline">
+          <span class="category-pill"></span>
+          <span class="score"></span>
+        </div>
+        <h3></h3>
+        <p></p>
+        <div class="tag-row"></div>
+      </article>
+    </template>
+
+    <script src="database.js"></script>
+    <script src="ml-search.js"></script>
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login | Search Engine</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="admin-page">
+    <main class="admin-page-shell">
+      <section class="admin-card login-card" aria-label="Admin login">
+        <div class="admin-card-header">
+          <div>
+            <strong>Admin Login</strong>
+            <span class="muted">Enter your credentials to manage content</span>
+          </div>
+          <a class="close-button" href="index.html">Home</a>
+        </div>
+
+        <form id="adminLoginForm" class="admin-form single-column">
+          <label>
+            User ID
+            <input id="adminUser" type="text" autocomplete="username" required />
+          </label>
+          <label>
+            Password
+            <input id="adminPassword" type="password" autocomplete="current-password" required />
+          </label>
+          <button type="submit">Login</button>
+          <p id="loginMessage" class="form-message"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

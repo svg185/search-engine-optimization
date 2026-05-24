@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Search Engine</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="admin-page">
+    <main class="admin-dashboard-shell">
+      <aside class="dashboard-sidebar" aria-label="Admin features">
+        <div>
+          <strong>Admin Dashboard</strong>
+          <span class="muted">Search Engine Control Panel</span>
+        </div>
+        <button class="dashboard-tab active" type="button" data-panel="addContentPanel">Add Content</button>
+        <button class="dashboard-tab" type="button" data-panel="removeContentPanel">Remove Content</button>
+        <button class="dashboard-tab" type="button" data-panel="addUserPanel">Add User</button>
+        <button class="dashboard-tab" type="button" data-panel="removeUserPanel">Remove User</button>
+        <button class="dashboard-tab" type="button" data-panel="historyPanel">View Search History</button>
+        <button class="dashboard-tab" type="button" data-panel="databasePanel">View Database</button>
+        <button class="dashboard-tab" type="button" data-panel="apiSettingsPanel">API / ML Settings</button>
+        <div class="sidebar-actions">
+          <a class="close-button" href="index.html">Home</a>
+          <button id="adminLogout" type="button">Logout</button>
+        </div>
+      </aside>
+
+      <section class="dashboard-main">
+        <header class="dashboard-header">
+          <div>
+            <h1>Admin Management</h1>
+            <p class="muted">Manage content, users, search history, and database records.</p>
+          </div>
+          <div class="dashboard-stats">
+            <span id="contentCount">0 content records</span>
+            <span id="userCount">0 users</span>
+            <span id="historyCount">0 searches</span>
+          </div>
+        </header>
+
+        <section class="dashboard-panel active" id="addContentPanel">
+          <div class="panel-title">
+            <strong>Add Content</strong>
+            <span class="muted">New records will improve user answers and related results.</span>
+          </div>
+          <form id="dataForm" class="data-form">
+            <label>
+              Topic Title
+              <input id="dataTitle" type="text" required />
+            </label>
+            <label>
+              Category
+              <input id="dataCategory" type="text" required />
+            </label>
+            <label>
+              Keywords
+              <input id="dataKeywords" type="text" required />
+            </label>
+            <label>
+              Image URL
+              <input id="dataImage" type="url" />
+            </label>
+            <label>
+              Short Summary
+              <textarea id="dataSummary" rows="2" required></textarea>
+            </label>
+            <label>
+              Direct Answer
+              <textarea id="dataAnswer" rows="4" required></textarea>
+            </label>
+            <label>
+              Key Points
+              <textarea id="dataPoints" rows="4" required></textarea>
+            </label>
+            <button type="submit">Add Data</button>
+            <p id="dataMessage" class="form-message"></p>
+          </form>
+        </section>
+
+        <section class="dashboard-panel" id="removeContentPanel">
+          <div class="panel-title">
+            <strong>Remove Content</strong>
+            <span class="muted">Delete custom records from the database.</span>
+          </div>
+          <div class="admin-list" id="removeContentList"></div>
+        </section>
+
+        <section class="dashboard-panel" id="addUserPanel">
+          <div class="panel-title">
+            <strong>Add User</strong>
+            <span class="muted">Create a new admin login account.</span>
+          </div>
+          <form id="userForm" class="data-form compact-form">
+            <label>
+              User ID
+              <input id="newUserId" type="text" required />
+            </label>
+            <label>
+              Password
+              <input id="newUserPassword" type="password" required />
+            </label>
+            <button type="submit">Add User</button>
+            <p id="userMessage" class="form-message"></p>
+          </form>
+        </section>
+
+        <section class="dashboard-panel" id="removeUserPanel">
+          <div class="panel-title">
+            <strong>Remove User</strong>
+            <span class="muted">Default admin account cannot be removed.</span>
+          </div>
+          <div class="admin-list" id="userList"></div>
+        </section>
+
+        <section class="dashboard-panel" id="historyPanel">
+          <div class="panel-title">
+            <strong>View Search History</strong>
+            <span class="muted">Questions searched by users are listed here.</span>
+          </div>
+          <div class="admin-list" id="historyList"></div>
+        </section>
+
+        <section class="dashboard-panel" id="databasePanel">
+          <div class="panel-title">
+            <strong>View Database</strong>
+            <span class="muted">Complete database view with every saved field.</span>
+          </div>
+          <div class="admin-list" id="databaseList"></div>
+        </section>
+
+        <section class="dashboard-panel" id="apiSettingsPanel">
+          <div class="panel-title">
+            <strong>API / ML Settings</strong>
+            <span class="muted">Configure API key, model endpoint, and machine-learning fallback mode.</span>
+          </div>
+          <form id="apiSettingsForm" class="data-form compact-form">
+            <label>
+              API Endpoint
+              <input id="apiEndpoint" type="url" placeholder="https://api.openai.com/v1/chat/completions" />
+            </label>
+            <label>
+              Model Name
+              <input id="apiModel" type="text" placeholder="gpt-4o-mini" />
+            </label>
+            <label>
+              API Key
+              <input id="apiKey" type="password" placeholder="Paste API key for demo" />
+            </label>
+            <label class="checkbox-label">
+              <input id="apiEnabled" type="checkbox" />
+              Enable API answers
+            </label>
+            <button type="submit">Save API Settings</button>
+            <p id="apiMessage" class="form-message"></p>
+          </form>
+          <div class="admin-list">
+            <article class="admin-list-item">
+              <div class="record-detail">
+                <strong>Machine Learning Module</strong>
+                <dl>
+                  <div><dt>File</dt><dd>ml-search.js</dd></div>
+                  <div><dt>Method</dt><dd>Tokenization, term frequency vectors, cosine similarity ranking</dd></div>
+                  <div><dt>Fallback</dt><dd>Local ML-ranked knowledge base is used when API is disabled or unavailable</dd></div>
+                </dl>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="database.js"></script>
+    <script src="api-client.js"></script>
+    <script src="admin-dashboard.js"></script>
+  </body>
+</html>
