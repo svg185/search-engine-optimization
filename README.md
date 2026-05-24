@@ -48,11 +48,11 @@ A modern AI-powered Search Engine project with an advanced Admin Dashboard, Mach
 
 ## Search Engine UI
 
-<img width="100%" alt="Search Engine UI" src="https://via.placeholder.com/1200x600.png?text=Search+Engine+UI">
+<img width="100%" alt="Search Engine UI" src="UI.png?text=Search+Engine+UI">
 
 ## Admin Dashboard
 
-<img width="100%" alt="Admin Dashboard" src="https://via.placeholder.com/1200x600.png?text=Admin+Dashboard">
+<img width="100%" alt="Admin Dashboard" src="admin dashboard.png?text=Admin+Dashboard">
 
 ---
 
@@ -242,7 +242,7 @@ If you like this project:
 
 For queries or collaboration:
 
-📧 Email: [kumarkartik2146@gmail.com]
+📧 Email: kumarkartik2146@gmail.com
 
 ---
 
