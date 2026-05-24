@@ -63,6 +63,9 @@ A modern AI-powered Search Engine project with an advanced Admin Dashboard, Mach
 * HTML5
 * CSS3
 * JavaScript
+* API KEY
+* MACHINE LEARNING
+* DATABASE
 
 ## Backend
 
