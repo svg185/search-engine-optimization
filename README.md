@@ -1,5 +1,6 @@
 ﻿# search-engine-optimization
 # 🔍 SmartSearch - AI Powered Search Engine
+ #PROJECT: https://svg185.github.io/search-engine-optimization/
 
 A modern AI-powered Search Engine project with an advanced Admin Dashboard, Machine Learning integration, API-based intelligent search, and local fallback ranking system.
 
